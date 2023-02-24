@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 
 import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import Lasso
 
 
 def filter_file(df: pd.DataFrame):
@@ -39,18 +40,33 @@ def fit_and_predict_degrees_linear(df: pd.DataFrame) -> float:
     '''
     Build the machine learning linear regression model and reture the MSE.
     '''
-    X = data.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
-    Y = data.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
+    X = df.iloc[:, 0].values.reshape(-1, 1)  # values converts it into a numpy array
+    Y = df.iloc[:, 1].values.reshape(-1, 1)  # -1 means that calculate the dimension of rows, but have 1 column
+    # dummies = pd.get_dummies(df[['League', 'Division','NewLeague']])
     linear_regressor = LinearRegression()
     linear_regressor.fit(X, Y)
     Y_pred = linear_regressor.predict(X)
-    
+    # plot scatter
     plt.scatter(X, Y)
     plt.plot(X, Y_pred, color='red')
     plt.show()
+    # MSE
+    print('R squared training set', round(reg.score(X_train, y_train)*100, 2))
+    print('R squared test set', round(reg.score(X_test, y_test)*100, 2))
+    # Training data
+    pred_train = reg.predict(X_train)
+    mse_train = mean_squared_error(y_train, pred_train)
+    print('MSE training set', round(mse_train, 2))
+
+    # Test data
+    pred = reg.predict(X_test)
+    mse_test =mean_squared_error(y_test, pred)
+    print('MSE test set', round(mse_test, 2))
     
     
-    
+def lasso(df: pd.DataFrame) -> None:    
+    reg = Lasso(alpha=1)
+    reg.fit(X_train, y_train)
     
     
     
