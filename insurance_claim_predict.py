@@ -73,7 +73,7 @@ def fit_and_predict_degrees_linear(df: pd.DataFrame) -> list:
     return [X_train, y_train, X_test, y_test]
     
     
-    def cross_validation(df: pd.DataFrame, train_list: list) -> None:
+def cross_validation(df: pd.DataFrame, train_list: list) -> None:
     features = df.loc[:, df.columns != 'claim']
     features = pd.get_dummies(features)
     # Lasso with 5 fold cross-validation
