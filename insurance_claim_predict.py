@@ -74,12 +74,12 @@ def lasso(df: pd.DataFrame) -> None:
 
 
 def main():
-    data = pd.read_csv('insurance_data.csv', na_values=['---'])
+    data = pd.read_csv('insurance_data.csv')
     # Call functions here
-    filter_file(data)
+    data = filter_file(data)
     tree_mse = fit_and_predict_degrees_tree(data)
-    linear_mse = fit_and_predict_degrees_linear(data)
-
+    print(tree_mse)
+    # linear_mse = fit_and_predict_degrees_linear(data)
 
 if __name__ == '__main__':
     main()
