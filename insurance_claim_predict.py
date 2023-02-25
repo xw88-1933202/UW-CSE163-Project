@@ -11,7 +11,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import Lasso
 
 
-def filter_file(df: pd.DataFrame):
+def filter_file(df: pd.DataFrame) -> pd.DataFrame:
     '''
     Clean the data.
     Drop uninformative rows.
@@ -19,6 +19,7 @@ def filter_file(df: pd.DataFrame):
     df = df.dropna().reset_index(drop=True)          # drop all rows with NaN values
     rows_count = len(df.index)
     df = df[['age', 'gender', 'bmi', 'bloodpressure', 'diabetic', 'children', 'smoker',	'region', 'claim']]
+    return df
 
     
 def fit_and_predict_degrees_tree(df: pd.DataFrame) -> float:
