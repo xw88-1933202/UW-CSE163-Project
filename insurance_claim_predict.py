@@ -74,6 +74,9 @@ def fit_and_predict_degrees_linear(df: pd.DataFrame) -> list:
     
     
 def cross_validation(df: pd.DataFrame, train_list: list) -> None:
+    '''
+    Use cross validation to calculate the best α and build the best model
+    '''
     features = df.loc[:, df.columns != 'claim']
     features = pd.get_dummies(features)
     # Lasso with 5 fold cross-validation
