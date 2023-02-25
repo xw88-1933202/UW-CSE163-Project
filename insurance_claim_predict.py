@@ -65,11 +65,6 @@ def fit_and_predict_degrees_linear(df: pd.DataFrame) -> float:
     print('MSE test set', round(mse_test, 2))
     
     
-def lasso(df: pd.DataFrame) -> None:    
-    reg = Lasso(alpha=1)
-    reg.fit(X_train, y_train)
-    
-    
     
 
 
