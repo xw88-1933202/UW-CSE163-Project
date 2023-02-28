@@ -117,7 +117,8 @@ def fit_and_predict_diabetic(df: pd.DataFrame) -> float:
 
 def hyperparameter_tuning(df: pd.DataFrame) -> float:
     '''
-    Build the machine learning Classification Tree model and return the accuracy score.
+    Build the machine learning Classification Tree model by taking
+    different hyperparameters and return the accuracy score.
     '''
     # Define parameter possibilities as lists
     p_criterion = ['gini', 'entropy']
