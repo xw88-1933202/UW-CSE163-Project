@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
+
 def filter_file(df: pd.DataFrame) -> pd.DataFrame:
     '''
     Clean the data.
