@@ -1,9 +1,3 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import pandas as pd
-import seaborn as sns
-
-
 def filter_file(df: pd.DataFrame) -> pd.DataFrame:
     '''
     Clean the data.
@@ -50,62 +44,92 @@ def smoker_amount(df: pd.DataFrame) -> pd.DataFrame:
     return (ave_smoker_claim, ave_no_smoker_claim)
 
 def ave_amount(df: pd.DataFrame) -> pd.DataFrame:
-    ave_claim = df.groupby('region')['claim'].mean()
+    ave_claim = df.groupby('region')['claim'].agg(['mean', 'count']).reset_index()
     return ave_claim
-    
-def plot_percentage(df: pd.DataFrame) -> None:
-    prop_dia = percent_diabeic(df)
-    prop_smoker = percent_smoker(df)
-
-    fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(10, 5))
-
-    prop_dia.plot(kind='bar', ax=ax[0])
-    ax[0].set_title('Percentage of Diabetics by Region')
-    ax[0].set_xlabel('Region')
-    ax[0].set_ylabel('Percentage')
-
-    prop_smoker.plot(kind='bar', ax=ax[1])
-    ax[1].set_title('Percentage of Smokers by Region')
-    ax[1].set_xlabel('Region')
-    ax[1].set_ylabel('Percentage')
-
-    fig.tight_layout()
-    plt.show()
 
 def plot_claim(df: pd.DataFrame) -> None:  
-    fig, axs = plt.subplots(ncols=3, figsize=(15,5))
-    
-    # Plot 1: Average claim amount for diabetic and non-diabetic individuals
-    ave_dia_claim, ave_no_dia_claim = dia_amount(df)
-    dia_data = pd.DataFrame({'Diabetic': ave_dia_claim, 'Non-Diabetic': ave_no_dia_claim})
-    sns.barplot(data=dia_data, ax=axs[0])
-    axs[0].set_title('Average Claim Amount by Diabetic Status')
-    
-    # Plot 2: Average claim amount for smoker and non-smoker individuals
-    ave_smoker_claim, ave_no_smoker_claim = smoker_amount(df)
-    smoker_data = pd.DataFrame({'Smoker': ave_smoker_claim, 'Non-Smoker': ave_no_smoker_claim})
-    sns.barplot(data=smoker_data, ax=axs[1])
-    axs[1].set_title('Average Claim Amount by Smoker Status')
-    
-    # Plot 3: Average claim amount by region
     ave_claim = ave_amount(df)
-    sns.barplot(x=ave_claim.index, y=ave_claim.values, ax=axs[2])
-    axs[2].set_title('Average Claim Amount by Region')
-    axs[2].set_xlabel('Region')
+    # Plot pie chart for average claim amount by region
+    fig = px.pie(ave_claim, values='mean', names='region', title='Average Claim Amount by Region')
+    fig.show()
+
+def plot_gender_factor(df: pd.DataFrame) -> None:
+    df['is_smoker'] = df['smoker'].apply(lambda x: 'Smoker' if x == 'yes' else 'Non-Smoker')
+    df['is_gender'] = df['gender'].apply(lambda x: 'Male' if x == 'male' else 'Female')
+    # Group by region, smoking status, and gender, and calculate the average coverage
+    ave_amount = df.groupby(['region', 'is_smoker', 'is_gender']).agg({'claim': 'mean'}).reset_index()
+    # start Dash
+    app = dash.Dash(__name__)
+    # add the bar - region
+    region_options = [{'label': region, 'value': region} for region in df['region'].unique()]
+
     
-    plt.tight_layout()
-    plt.show()
+    app.layout = html.Div(children=[
+    html.H1(children='Average Claim by Region in Gender'),
+        
+    dcc.Dropdown(
+        id='region-dropdown',
+        options=region_options,
+        value=df['region'].unique()[0]
+    ),
+
+    dcc.Graph(
+        id='smoker-male',
+    ),
+
+    dcc.Graph(
+        id='smoker-female',
+    ),
+
+    dcc.Graph(
+        id='non-smoker-male',
+    ),
+
+    dcc.Graph(
+        id='non-smoker-female',
+    )
+])
+
+    
+    # Define callback to update graphs when region dropdown is changed
+    @app.callback(
+        [dash.dependencies.Output('smoker-male', 'figure'),
+         dash.dependencies.Output('smoker-female', 'figure'),
+         dash.dependencies.Output('non-smoker-male', 'figure'),
+         dash.dependencies.Output('non-smoker-female', 'figure')],
+        [dash.dependencies.Input('region-dropdown', 'value')]
+    )
+    def update_graphs(region):
+        # Filter DataFrame by selected region
+        df_region = df[df['region'] == region]
+
+        # Group by region, smoking status, and gender, and calculate the average coverage
+        avg_amount = df_region.groupby(['region', 'is_smoker', 'is_gender']).agg({'claim': 'mean'}).reset_index()
+
+        # Create figures for each graph
+        fig_smoker_male = px.bar(avg_coverage[(avg_coverage['is_smoker'] == 'Smoker') & (avg_coverage['is_gender'] == 'Male')], 
+                          x='region', y='claim', color='is_smoker', barmode='group')
+        fig_smoker_female = px.bar(avg_coverage[(avg_coverage['is_smoker'] == 'Smoker') & (avg_coverage['is_gender'] == 'Female')], 
+                          x='region', y='claim', color='is_smoker', barmode='group')
+        fig_non_smoker_male = px.bar(avg_coverage[(avg_coverage['is_smoker'] == 'Non-Smoker') & (avg_coverage['is_gender'] == 'Male')], 
+                          x='region', y='claim', color='is_smoker', barmode='group')
+        fig_non_smoker_female = px.bar(avg_coverage[(avg_coverage['is_smoker'] == 'Non-Smoker') & (avg_coverage['is_gender'] == 'Female')], 
+                          x='region', y='claim', color='is_smoker', barmode='group')
+
+        # Return figures for each graph
+        return fig_smoker_male, fig_smoker_female, fig_non_smoker_male, fig_non_smoker_female
+    app.run_server(debug=True)
 
 def main():
-    data = pd.read_csv('insurance_data.csv')
+    df = pd.read_csv('insurance_data.csv')
     # Call functions here
-    percent_diabeic(data)
-    percent_smoker(data)
-    dia_amount(data)
-    smoker_amount(data)
-    ave_amount(data)
-    plot_percentage(data)
-    plot_claim(data)
+    percent_diabeic(df)
+    percent_smoker(df)
+    dia_amount(df)
+    smoker_amount(df)
+    ave_amount(df)
+    plot_claim(df)
+    plot_gender_factor(df)
     
 
 if __name__ == '__main__':
