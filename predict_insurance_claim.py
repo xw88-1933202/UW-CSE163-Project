@@ -39,7 +39,7 @@ def fit_and_predict_degrees_tree(df: pd.DataFrame) -> None:
     print('Tree MSE test set:', round(mean_squared_error(labels_test, predictions), 2))
     
     
-    def fit_and_predict_degrees_linear(df: pd.DataFrame) -> None:
+def fit_and_predict_degrees_linear(df: pd.DataFrame) -> None:
     '''
     Build the machine learning linear regression model and reture the MSE.
     '''
