@@ -24,7 +24,7 @@ def filter_file(df: pd.DataFrame) -> pd.DataFrame:
     return df
   
   
-  def fit_and_predict_degrees_tree(df: pd.DataFrame) -> None:
+def fit_and_predict_degrees_tree(df: pd.DataFrame) -> None:
     '''
     Build the machine learning Regression Tree model and reture the MSE.
     '''
@@ -83,7 +83,7 @@ def filter_file(df: pd.DataFrame) -> pd.DataFrame:
     print('best lasso model test set mse:', round(mean_squared_error(y_test, lasso_best.predict(X_test)), 2))
     
     
-    def main():
+def main():
     data = pd.read_csv('insurance_data.csv')
     # Call functions here
     data = filter_file(data)
@@ -94,11 +94,13 @@ if __name__ == '__main__':
     main()
     
 
-'''
-Tree MSE test set: 62462237.38
-Linear MSE training set: 43396839.03
-Linear MSE test set: 41346465.04
-best value of penalization: 40.48
-[(220.67777789171802, 'age'), (1973.9114357246187, 'bmi'), (2578.4219804815343, 'bloodpressure'), (696.9285432747407, 'children'), (-0.0, 'gender_female'), (15.758597983817875, 'diabetic_No'), (-20670.70474042754, 'smoker_No'), (1918.4386309856318, 'region_northeast'), (0.0, 'region_northwest'), (-477.0371559518968, 'region_southeast')]
-best lasso model mse: 41401657.36
-'''
+    '''
+    Tree MSE test set: 62462237.38
+    Linear MSE training set: 43396839.03
+    Linear MSE test set: 41346465.04
+    best value of penalization: 40.48
+    [(220.67777789171802, 'age'), (1973.9114357246187, 'bmi'), (2578.4219804815343, 'bloodpressure'), (696.9285432747407, 'children'),
+    (-0.0, 'gender_female'), (15.758597983817875, 'diabetic_No'), (-20670.70474042754, 'smoker_No'), (1918.4386309856318, 'region_northeast'),
+    (0.0, 'region_northwest'), (-477.0371559518968, 'region_southeast')]
+    best lasso model mse: 41401657.36
+    '''
