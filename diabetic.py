@@ -36,7 +36,7 @@ def fit_and_predict_diabetic(df: pd.DataFrame) -> float:
     model.fit(features_train, labels_train)
     predictions = model.predict(features_test)
     score = accuracy_score(labels_test, predictions)
-    print('Diabetic accuracy score:', score)
+    return score
 
 
 def hyperparameter_tuning(df: pd.DataFrame) -> float:
@@ -79,7 +79,7 @@ def hyperparameter_tuning(df: pd.DataFrame) -> float:
     # Convert to Pandas DataFrame and sort descendingly by accuracy
     results = pd.DataFrame(results)
     results = results.sort_values(by='Accuracy', ascending=False)
-    print('hyperparameter tuning reusults:', results)
+    return results
 
 
 def main():
