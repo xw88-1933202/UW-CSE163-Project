@@ -1,32 +1,45 @@
+import pandas as pd
+import plotly.express as px
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import plotly.express as px
-import pandas as pd
+from dash.dependencies import Input, Output
+from diabetic import filter_file
 
-df = pd.read_csv('insurance_data.csv')
+# Load and filter the data
+df = pd.read_csv("insurance_data.csv")
+df = filter_file(df)
 
+# Group the data by 'region' and 'gender', and calculate the mean claim for each group
+grouped_data = df.groupby(['region', 'gender']).mean()['claim'].reset_index()
+
+# Create the app and layout
 app = dash.Dash(__name__)
-
 app.layout = html.Div([
-    html.H1('Insurance Claims by Region'),
-    dcc.Dropdown(
-        id='region-dropdown',
-        options=[{'label': r, 'value': r} for r in df['region'].dropna().unique()],
-        value=df['region'].dropna().unique()[0]
+    dcc.Graph(
+        id='insurance-plot',
+        figure={
+            'data': [],
+            'layout': {
+                'title': 'Mean Claim by Region and Gender',
+            }
+        }
     ),
-    dcc.Graph(id='pie-chart')
+    dcc.Dropdown(
+        id='gender-dropdown',
+        options=[{'label': gender, 'value': gender} for gender in grouped_data['gender'].unique()],
+        value=grouped_data['gender'].unique()[0]
+    )
 ])
 
 @app.callback(
-    dash.dependencies.Output('pie-chart', 'figure'),
-    [dash.dependencies.Input('region-dropdown', 'value')]
+    Output('insurance-plot', 'figure'),
+    [Input('gender-dropdown', 'value')]
 )
-def update_pie_chart(region):
-    data = df[df['region'] == region]
-    fig = px.pie(data, values='claim', names='gender')
-    fig.update_traces(hoverinfo='label+percent', textinfo='value+label')
+def update_plot(gender):
+    filtered_data = grouped_data[grouped_data['gender'] == gender]
+    fig = px.pie(filtered_data, values='claim', names='region', title='Mean Claim by Region for ' + gender)
     return fig
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, port=8051)
