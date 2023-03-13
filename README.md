@@ -16,15 +16,20 @@ Final PowerPoint Link: https://docs.google.com/presentation/d/1txZ4AZmEMBhEEfXJ-
 To run these code, you will need Python 3.x installed on your computer(you can download it from the official website: https://www.python.org/downloads/), as well as the following modules:
 * pandas
 * sklearn
+* dash
+* dash_core_components
+* dash_html_components
 
 To get started, follow these steps:
 1. Clone the repository to your local machine.
-2. Install the required Python modules by running the following command in your terminal: `pip install pandas sklearn`
+2. Install the required Python modules by running the following command in your terminal: `pip install pandas sklearn dash dash_core_components dash_html_components`
 
 
 **Q1 code instruction:** To reproduce the result we get in Q1, all you need to do is to upload the dataset and run the predict_insurance_claim.py. There are detailed comments as instructions on what each part of the code is doing in the file.
 
-**Q2 code instruction:** To reproduce the result we get in Q2, you don’t need to download the dataset since the dataset "insurance_data.csv” is in the same directory as the each file. There are detailed comments as instructions on what each part of the code is doing in the file. To run the code following `bar plot.py`, `pie chat.py`, and `scatter plot.py`, you will see the each plot from each file. You can choose the 'male' button or 'female' button in the bar to see the different plot.
+**Q2 code instruction:** To reproduce the result we get in Q2, you don’t need to download the dataset as the file "insurance_data.csv" is already in the same directory as each file.There are detailed comments as instructions on what each part of the code is doing in the file. 
+To run the `bar_plot.py`, `pie_chat.py`, `scatter_plot.py`, you should open a command prompt or terminal window and navigate to the directory where the code file and data file are saved. Type the following command to run the code: `python bar_plot.py`, `python pie_chart.py`, `python scatter_plot.py`
+Open a web browser and go to http://localhost:8051/ or http://127.0.0.1:8050/ based on the output of the code to view these plots. You can interact with these plots by using the widgets to filter the data presented in these graphs.
 
 **Q3 code instruction:** To reproduce the result we get in Q3, you don’t need to download the dataset since the dataset "insurance_data.csv”is in the same directory as the "diabetic.py" file. To run the code, navigate to the "diabetic.py" file in your terminal and run the following command: `python diabetic.py` The code will read in the data from the "insurance_data.csv" file, clean it, build a machine learning model, and output the accuracy score of the model. Additionally, it will run hyperparameter tuning to find the best combination of hyperparameters for the model and output the accuracy scores for each combination in descending order.
 
@@ -32,3 +37,5 @@ To get started, follow these steps:
 
 **test_file:** Run the following command to execute the test code:`python test_file.py`. The tests will run automatically and should produce no errors if the functions are working correctly. This code is designed to test the functions in diabetic.py. The code in test_file.py imports the necessary modules and functions from diabetic.py, reads in the insurance data file named "insurance_data.csv", and applies the three functions to it. This file also includes tests for each function to ensure they are working as expected.
 
+**_test_plot_file:_** Navigate to the project directory. Open the terminal and run the following command: `python test_plot_file.py`. The code will run and output the results of the tests for the pre-processed data for each of the bar_plot.py, pie_chart.py, and scatter_plot.py files using the test_small_data.csv file. This code check the following: The expected number of rows, The expected number of columns, The absence of any NaN values. 
+**_note:_** The filter_file() function from the diabetic module is used to pre-process the data before generating the plots. The test_filter_file() function in the test_plot_file.py file tests the filter_file() function to ensure that the data is pre-processed correctly.
