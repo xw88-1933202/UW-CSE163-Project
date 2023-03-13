@@ -23,7 +23,7 @@ To run these code, you will need Python 3.x installed on your computer(you can d
 
 To get started, follow these steps:
 1. Clone the repository to your local machine.
-2. Install the required Python modules by running the following command in your terminal: `pip install pandas sklearn dash dash_core_components dash_html_components`
+2. Install the required Python modules by running the following command in your terminal: `pip install pandas sklearn plotly dash dash_core_components dash_html_components`
 
 
 **Q1 code instruction:** To reproduce the result we get in Q1, all you need to do is to upload the dataset and run the predict_insurance_claim.py. There are detailed comments as instructions on what each part of the code is doing in the file.
