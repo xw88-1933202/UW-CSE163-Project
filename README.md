@@ -20,7 +20,7 @@ To get started, follow these steps:
 2. Install the required Python modules by running the following command in your terminal: `pip install pandas sklearn`
 
 
-Q1 code instruction: To reproduce the result we get in Q1, all you need to do is to upload the dataset and run the predict_insurance_claim.py. There are detailed comments as instructions on what each part of the code is doing in the file. After running, in the console you will see some warnings, such as "deprecated in NumPy 1.20". These are just problems with the packages, and they have no effect on our results, just ignore them.
+Q1 code instruction: To reproduce the result we get in Q1, all you need to do is to upload the dataset and run the predict_insurance_claim.py. There are detailed comments as instructions on what each part of the code is doing in the file.
 
 Q2 code instruction: To reproduce the result we get in Q2, you don’t need to download the dataset since the dataset "insurance_data.csv” is in the same directory as the each file. There are detailed comments as instructions on what each part of the code is doing in the file. To run the code following `bar plot.py`, `pie chat.py`, and `scatter plot.py`, you will see the each plot from each file. You can choose the 'male' button or 'female' button in the bar to see the different plot.
 
