@@ -27,7 +27,7 @@ To get started, follow these steps:
 
 **Q1 code instruction:** To reproduce the result we get in Q1, all you need to do is to upload the dataset and run the predict_insurance_claim.py. There are detailed comments as instructions on what each part of the code is doing in the file.
 
-**Q2 code instruction:** To reproduce the result we get in Q2, you don’t need to download the dataset since the dataset "insurance_data.csv” is in the same directory as the each file. There are detailed comments as instructions on what each part of the code is doing in the file. 
+**Q2 code instruction:** To reproduce the result we get in Q2, you don’t need to download the dataset as the file "insurance_data.csv" is already in the same directory as each file.There are detailed comments as instructions on what each part of the code is doing in the file. 
 To run the `bar_plot.py`, `pie_chat.py`, `scatter_plot.py`, you should open a command prompt or terminal window and navigate to the directory where the code file and data file are saved. Type the following command to run the code: `python bar_plot.py`, `python pie_chart.py`, `python scatter_plot.py`
 Open a web browser and go to http://localhost:8051/ or http://127.0.0.1:8050/ based on the output of the code to view these plots. You can interact with these plots by using the widgets to filter the data presented in these graphs.
 
