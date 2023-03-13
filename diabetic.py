@@ -1,9 +1,4 @@
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
-
-
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
@@ -14,16 +9,18 @@ def filter_file(df: pd.DataFrame) -> pd.DataFrame:
     Clean the data.
     Drop uninformative rows.
     '''
-    df = df.dropna().reset_index(drop=True)          # drop all rows with NaN values
-    rows_count = len(df.index)
-    df = df[['age', 'gender', 'bmi', 'bloodpressure', 'diabetic', 'children', 'smoker',	'region', 'claim']]
+    # drop all rows with NaN values
+    df = df.dropna().reset_index(drop=True)
+    df = df[['age', 'gender', 'bmi', 'bloodpressure', 'diabetic',
+             'children', 'smoker',	'region', 'claim']]
     df['diabetic'] = df['diabetic'].map({'No': 0, 'Yes': 1})
     return df
 
 
 def fit_and_predict_diabetic(df: pd.DataFrame) -> float:
     '''
-    Build the machine learning Classification Tree model and reture the accuracy score.
+    Build the machine learning Classification Tree
+    model and reture the accuracy score.
     '''
     features = df.loc[:, df.columns != ('diabetic')]
     features = df.loc[:, ~df.columns.isin(['diabetic', 'children', 'region'])]
@@ -54,11 +51,13 @@ def hyperparameter_tuning(df: pd.DataFrame) -> float:
     for criterion in p_criterion:
         for splitter in p_splitter:
             for max_depth in p_max_depth:
-                features = df.loc[:, ~df.columns.isin(['diabetic', 'region', 'children'])]
+                features = df.loc[:, ~df.columns.isin(['diabetic', 'region',
+                                                       'children'])]
                 labels = df['diabetic']
                 features = pd.get_dummies(features)
                 features_train, features_test, labels_train, labels_test = \
-                    train_test_split(features, labels, test_size=0.2, random_state=2)
+                    train_test_split(features, labels, test_size=0.2,
+                                     random_state=2)
                 # Train the model
                 model = DecisionTreeClassifier(
                     criterion=criterion,

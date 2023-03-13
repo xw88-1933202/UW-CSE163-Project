@@ -1,8 +1,15 @@
 import pandas as pd
 from diabetic import filter_file
 
+
 # Test if data is pre-processed correctly
 def test_filter_file():
+    """
+    Test if data is pre-processed correctly by checking the following:
+    - The expected number of rows
+    - The expected number of columns
+    - The absence of any NaN values
+    """
     # Load the dataset
     df = pd.read_csv("test_small_data.csv")
 
@@ -18,8 +25,10 @@ def test_filter_file():
     # Check if the filtered dataset does not contain any NaN values
     assert filtered_df.isnull().sum().sum() == 0
 
+
 def main():
     test_filter_file()
+
 
 if __name__ == '__main__':
     main()

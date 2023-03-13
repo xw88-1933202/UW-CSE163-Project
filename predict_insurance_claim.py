@@ -1,12 +1,7 @@
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
-
-import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import Lasso
 from sklearn.preprocessing import StandardScaler

@@ -11,26 +11,35 @@ df = pd.read_csv('insurance_data.csv')
 app = dash.Dash(__name__)
 app.layout = html.Div([
     dcc.Graph(id='scatter-plot',
-              figure=px.scatter(df, x='bmi', y='claim', color='gender', trendline='ols'))
+              figure=px.scatter(df, x='bmi', y='claim', color='gender',
+                                trendline='ols'))
 ])
+
 
 @app.callback(
     dash.dependencies.Output('scatter-plot', 'figure'),
     [dash.dependencies.Input('gender-dropdown', 'value')])
 def update_figure(selected_gender):
     filtered_df = df[df['gender'] == selected_gender]
-    fig = px.scatter(filtered_df, x='bmi', y='claim', color='gender', trendline='ols')
+    fig = px.scatter(filtered_df, x='bmi', y='claim', color='gender',
+                     trendline='ols')
     fig.update_traces(marker=dict(
-        color=['blue' if gender == 'male' else 'red' for gender in df['gender']]
+        color=['blue' if gender == 'male' else 'red'
+               for gender in df['gender']]
     ))
     return fig
 
+
 # Add the dropdown menu to the app layout
 app.layout = html.Div([
-    dcc.Dropdown(id='gender-dropdown', options=[{'label': 'Male', 'value': 'male'},
-                                                 {'label': 'Female', 'value': 'female'}],
+    dcc.Dropdown(id='gender-dropdown', options=[{'label': 'Male',
+                                                 'value': 'male'},
+                                                {'label': 'Female',
+                                                'value': 'female'}],
                  value='male'),
-    dcc.Graph(id='scatter-plot', figure=px.scatter(df, x='bmi', y='claim', color='gender', trendline='ols'))
+    dcc.Graph(id='scatter-plot', figure=px.scatter(df, x='bmi', y='claim',
+                                                   color='gender',
+                                                   trendline='ols'))
 ])
 # Run the app
 if __name__ == '__main__':
