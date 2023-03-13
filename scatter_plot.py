@@ -12,7 +12,7 @@ app = dash.Dash(__name__)
 app.layout = html.Div([
     dcc.Graph(id='scatter-plot',
               figure=px.scatter(df, x='bmi', y='claim', color='gender',
-                                trendline='ols'))
+                                trendline='ols', custom_data=['gender']))
 ])
 
 
@@ -22,10 +22,10 @@ app.layout = html.Div([
 def update_figure(selected_gender):
     filtered_df = df[df['gender'] == selected_gender]
     fig = px.scatter(filtered_df, x='bmi', y='claim', color='gender',
-                     trendline='ols')
+                     trendline='ols', custom_data=['gender'])
     fig.update_traces(marker=dict(
         color=['blue' if gender == 'male' else 'red'
-               for gender in df['gender']]
+               for gender in filtered_df['gender']]
     ))
     return fig
 
