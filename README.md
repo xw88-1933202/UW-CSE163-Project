@@ -13,7 +13,7 @@ Final PowerPoint Link: https://docs.google.com/presentation/d/1txZ4AZmEMBhEEfXJ-
 
 ## Getting Started
 ### Installation Requirements
-To run these code, you will need Python 3.x installed on your computer, as well as the following modules:
+To run these code, you will need Python 3.x installed on your computer(you can download it from the official website: https://www.python.org/downloads/), as well as the following modules:
 * pandas
 * sklearn
 
