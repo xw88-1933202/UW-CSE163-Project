@@ -17,6 +17,7 @@ To run these code, you will need Python 3.x installed on your computer(you can d
 * pandas
 * sklearn
 * dash
+* plotly
 * dash_core_components
 * dash_html_components
 
