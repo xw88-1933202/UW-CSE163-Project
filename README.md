@@ -16,6 +16,9 @@ Final PowerPoint Link: https://docs.google.com/presentation/d/1txZ4AZmEMBhEEfXJ-
 To run these code, you will need Python 3.x installed on your computer(you can download it from the official website: https://www.python.org/downloads/), as well as the following modules:
 * pandas
 * sklearn
+* dash
+* dash_core_components
+* dash_html_components
 
 To get started, follow these steps:
 1. Clone the repository to your local machine.
