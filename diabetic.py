@@ -9,7 +9,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
 
-
 def filter_file(df: pd.DataFrame) -> pd.DataFrame:
     '''
     Clean the data.
