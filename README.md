@@ -15,7 +15,7 @@ To run these code, you will need Python 3.x installed on your computer, as well 
 
 To get started, follow these steps:
 1. Clone the repository to your local machine.
-2. Install the required Python modules by running the following command in your terminal: “pip install pandas sklearn”
+2. Install the required Python modules by running the following command in your terminal: `pip install pandas sklearn`
 
 
 Q1 code instruction: To reproduce the result we get in Q1, all you need to do is to upload the dataset and run the predict_insurance_claim.py. There are detailed comments as instructions on what each part of the code is doing in the file. After running, in the console you will see some warnings, such as "deprecated in NumPy 1.20". These are just problems with the packages, and they have no effect on our results, just ignore them.
