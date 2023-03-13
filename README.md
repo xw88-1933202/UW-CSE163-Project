@@ -27,7 +27,9 @@ To get started, follow these steps:
 
 **Q1 code instruction:** To reproduce the result we get in Q1, all you need to do is to upload the dataset and run the predict_insurance_claim.py. There are detailed comments as instructions on what each part of the code is doing in the file.
 
-**Q2 code instruction:** To reproduce the result we get in Q2, you don’t need to download the dataset since the dataset "insurance_data.csv” is in the same directory as the each file. There are detailed comments as instructions on what each part of the code is doing in the file. To run the code following `bar plot.py`, `pie chat.py`, and `scatter plot.py`, you will see the each plot from each file. You can choose the 'male' button or 'female' button in the bar to see the different plot.
+**Q2 code instruction:** To reproduce the result we get in Q2, you don’t need to download the dataset since the dataset "insurance_data.csv” is in the same directory as the each file. There are detailed comments as instructions on what each part of the code is doing in the file. 
+To run the `bar_plot.py`, `pie_chat.py`, `scatter_plot.py`, you should open a command prompt or terminal window and navigate to the directory where the code file and data file are saved. Type the following command to run the code: `python bar_plot.py`, `python pie_chart.py`, `python scatter_plot.py`
+Open a web browser and go to http://localhost:8051/ or  to view the bar plot.
 
 **Q3 code instruction:** To reproduce the result we get in Q3, you don’t need to download the dataset since the dataset "insurance_data.csv”is in the same directory as the "diabetic.py" file. To run the code, navigate to the "diabetic.py" file in your terminal and run the following command: `python diabetic.py` The code will read in the data from the "insurance_data.csv" file, clean it, build a machine learning model, and output the accuracy score of the model. Additionally, it will run hyperparameter tuning to find the best combination of hyperparameters for the model and output the accuracy scores for each combination in descending order.
 
