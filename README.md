@@ -7,4 +7,4 @@ Proposal Link: https://docs.google.com/document/d/1X6JcnAoaaaaei1FJA52cRCE076oZf
 
 Dataset Link: https://www.kaggle.com/datasets/thedevastator/insurance-claim-analysis-demographic-and-health
 
-Q1 code instruction: To reproduce the result we get in Q1, all you need to do is to upload the dataset and run the predict_insurance_claim.py.
+Q1 code instruction: To reproduce the result we get in Q1, all you need to do is to upload the dataset and run the predict_insurance_claim.py. In the console you will see some warnings, such as "deprecated in NumPy 1.20". These are just problems with the packages, and they have no effect on our results.
