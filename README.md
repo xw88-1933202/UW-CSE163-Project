@@ -9,7 +9,7 @@ Dataset Link: https://www.kaggle.com/datasets/thedevastator/insurance-claim-anal
 
 Final Report Link: https://docs.google.com/document/d/115dKF0ZKfSlQjxm6yZ5EVV5fNgKNFIqVSfaBCTN41NM/edit?usp=sharing
 
-Final powerpoint Link: https://docs.google.com/presentation/d/1txZ4AZmEMBhEEfXJ-2tS3Y-Nr83N7iTB56U5Ek4hoOU/edit?usp=sharing
+Final PowerPoint Link: https://docs.google.com/presentation/d/1txZ4AZmEMBhEEfXJ-2tS3Y-Nr83N7iTB56U5Ek4hoOU/edit?usp=sharing
 
 ## Getting Started
 ### Installation Requirements
