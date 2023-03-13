@@ -30,4 +30,5 @@ To get started, follow these steps:
 
 **_Please note that:_** You may encounter the error message reporting a deprecated error by running this code. It is an internal issue inside the sklearn library, which basically means that sklearn is calling some numpy library functions that are deprecated. You could try to update the sklearn library to the latest version (e.g. via the pip command) and see if the developers have fixed this, or config Python to suppress these warnings at runtime. However, these warnings don't break the code or cause other errors, so you can ignore the deprecated error message.
 
-**test_file:**
+**test_file:** Run the following command to execute the test code:`python test_file.py`. The tests will run automatically and should produce no errors if the functions are working correctly. This code is designed to test the functions in diabetic.py. The code in test_file.py imports the necessary modules and functions from diabetic.py, reads in the insurance data file named "insurance_data.csv", and applies the three functions to it. This file also includes tests for each function to ensure they are working as expected.
+
