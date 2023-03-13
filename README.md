@@ -32,3 +32,7 @@ To get started, follow these steps:
 
 **test_file:** Run the following command to execute the test code:`python test_file.py`. The tests will run automatically and should produce no errors if the functions are working correctly. This code is designed to test the functions in diabetic.py. The code in test_file.py imports the necessary modules and functions from diabetic.py, reads in the insurance data file named "insurance_data.csv", and applies the three functions to it. This file also includes tests for each function to ensure they are working as expected.
 
+**_test_plot_file:_** Navigate to the project directory. Open the terminal and run the following command: `python test_plot_file.py`. The code will run and output the results of the tests for the pre-processed data for each of the bar_plot.py, pie_chart.py, and scatter_plot.py files using the test_small_data.csv file. This code check the following:
+    - The expected number of rows
+    - The expected number of columns
+    - The absence of any NaN values
