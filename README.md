@@ -8,7 +8,7 @@ Proposal Link: https://docs.google.com/document/d/1X6JcnAoaaaaei1FJA52cRCE076oZf
 Dataset Link: https://www.kaggle.com/datasets/thedevastator/insurance-claim-analysis-demographic-and-health
 
 ## Getting Started
-### Requirements
+### Installation Requirements
 To run these code, you will need Python 3.x installed on your computer, as well as the following modules:
 * pandas
 * sklearn
