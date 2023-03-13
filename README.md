@@ -29,7 +29,7 @@ To get started, follow these steps:
 
 **Q2 code instruction:** To reproduce the result we get in Q2, you don’t need to download the dataset since the dataset "insurance_data.csv” is in the same directory as the each file. There are detailed comments as instructions on what each part of the code is doing in the file. 
 To run the `bar_plot.py`, `pie_chat.py`, `scatter_plot.py`, you should open a command prompt or terminal window and navigate to the directory where the code file and data file are saved. Type the following command to run the code: `python bar_plot.py`, `python pie_chart.py`, `python scatter_plot.py`
-Open a web browser and go to http://localhost:8051/ or  to view the bar plot.
+Open a web browser and go to http://localhost:8051/ or http://127.0.0.1:8050/ based on the output of the code to view these plots. You can interact with these plots by using the widgets to filter the data presented in these graphs.
 
 **Q3 code instruction:** To reproduce the result we get in Q3, you don’t need to download the dataset since the dataset "insurance_data.csv”is in the same directory as the "diabetic.py" file. To run the code, navigate to the "diabetic.py" file in your terminal and run the following command: `python diabetic.py` The code will read in the data from the "insurance_data.csv" file, clean it, build a machine learning model, and output the accuracy score of the model. Additionally, it will run hyperparameter tuning to find the best combination of hyperparameters for the model and output the accuracy scores for each combination in descending order.
 
