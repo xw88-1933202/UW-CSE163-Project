@@ -3,7 +3,7 @@ Final project for CSE163: Intermediate Data Programming in University of Washing
 
 Authors: Xuqing Wu, Yuzhuo Ma, Zhuoyi Zhao
 
-Proposal Link: [[https://docs.google.com/document/d/1X6JcnAoaaaaei1FJA52cRCE076oZflmOH0kIG1Mkfd0/edit?usp=sharing](https://drive.google.com/file/d/1JFkidYzDxeHFN3see-EZjH60tq670qc3/view?usp=sharing)](https://drive.google.com/file/d/1JFkidYzDxeHFN3see-EZjH60tq670qc3/view?usp=sharing)
+Proposal Link: https://docs.google.com/document/d/1X6JcnAoaaaaei1FJA52cRCE076oZflmOH0kIG1Mkfd0/edit?usp=sharing
 
 Dataset Link: https://www.kaggle.com/datasets/thedevastator/insurance-claim-analysis-demographic-and-health
 
